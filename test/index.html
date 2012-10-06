@@ -17,26 +17,62 @@
       
   <script>expect = chai.expect</script>
       
-    
-  
-
-  <!-- -->
-
   <!-- include source files here... -->
-
+        <script src="../app/scripts/vendor/jquery.min.js"></script>
+        <script src="../app/scripts/vendor/lodash.min.js"></script>
+        <script src="../app/scripts/vendor/backbone-min.js"></script>
+        <script src="../app/scripts/main.js"></script>
+        <script src="../app/scripts/views/application-view.js"></script>
+        <script src="../app/scripts/models/application-model.js"></script>
+        <script src="../app/scripts/models/page-model.js"></script>
+        <script src="../app/scripts/models/project-model.js"></script>
+        <script src="../app/scripts/models/section-model.js"></script>
+        <script src="../app/scripts/collections/section-collection.js"></script>
+        <script src="../app/scripts/collections/page-collection.js"></script>
+        <script src="../app/scripts/routes/application-router.js"></script>
   <!-- include spec files here... -->
   <script>
+
+  $(document).ready(function(){
+    EditorialPinch.init('../app/data/website.json');
+  });
+
+
   // replace this by your own specs
   (function() {
-    describe('Give it some context', function() {
-      describe('maybe a bit more context here', function() {
+    
+    var EP = window.EditorialPinch;
+    var m = EP.Models;
+    var c = EP.Collections;
+    describe('Application DATA', function() {
 
-        it('should run here few assertions', function() {
+      
+      describe('App Model', function(){
 
+        it('should be defined', function() {
+           expect(m.app).to.be.instanceOf(m.ApplicationModel);
+        });
+
+        it('should have section array' , function(){
+          expect(m.app.attributes).to.have.property('section').be.a('array');
+        });
+        
+        it('should create section collection', function (){
+          expect(c.sections).to.be.instanceOf(c.SectionCollection);
         });
 
       });
-    });
+
+      describe('Section Collection', function () {
+        
+        it('Model should be SectionModel', function() {
+          expect(c.sections.model).to.equal(m.SectionModel);
+        });
+        it('Collection length should be greater than 0', function(){
+          expect(c.sections.length > 0).to.be.true;
+        })
+      });
+    })
   })();
   </script>
 

@@ -1,0 +1,73 @@
+{
+	"section":[
+		{
+			"name":"About",
+			"slides-path":"images/about/",
+			"slides":[
+				"about01.gif",
+				"about02.gif",
+				"about03.gif"
+			]
+		},
+		{
+			"name":"Projects",
+			"sub-sections":[
+				{
+					"name":"Von Derren Films",
+					"slides-path":"images/vdf/",
+					"slides":[
+						"VDF01.jpg",
+						"VDF02.jpg",
+						"VDF03.jpg",
+						"VDF04.jpg"
+					]
+				},
+				{
+					"name":"Old Norse",
+					"slides-path":"images/old-norse/",
+					"slides":[
+						"OldNorse01.gif",
+						"OldNorse02.gif",
+						"OldNorse03.gif"
+					]
+				},
+				{
+					"name":"PT",
+					"slides-path":"images/pt/",
+					"slides":[
+						"PT01.jpg",
+						"PT02.jpg",
+						"PT03.jpg",
+						"PT04.gif",
+						"PT05.jpg",
+						"PT06.jpg",
+						"PT07.jpg"
+					]
+				},
+				{
+					"name":"Celebrate",
+					"slides-path":"images/celebrate/",
+					"slides":[
+						"Celebrate01.gif",
+						"Celebrate02.jpg",
+						"Celebrate03.jpg"
+					]
+				},
+				{
+					"name":"Allulli",
+					"slides-path":"images/allulli/",
+					"slides":[
+						"allulli01.gif",
+						"allulli02.jpg",
+						"allulli03.jpg"
+					]
+				}
+			]
+		},
+		{
+			"name":"contact"
+		}
+
+	]
+		
+}

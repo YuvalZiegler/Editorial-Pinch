@@ -31,8 +31,9 @@
         <script src="scripts/models/application-model.js"></script>
         <script src="scripts/models/page-model.js"></script>
         <script src="scripts/models/project-model.js"></script>
-        <script src="scripts/collections/application-collection.js"></script>
-        <script src="scripts/collections/pages-collection.js"></script>
+        <script src="scripts/models/section-model.js"></script>
+        <script src="scripts/collections/section-collection.js"></script>
+        <script src="scripts/collections/page-collection.js"></script>
         <script src="scripts/routes/application-router.js"></script>
         <!-- endbuild -->
 
@@ -43,5 +44,11 @@
             g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
             s.parentNode.insertBefore(g,s)}(document,'script'));
         </script>
+        <script>
+            $(document).ready(function(){
+                EditorialPinch.init();
+            });
+        </script>
+
     </body>
 </html>
