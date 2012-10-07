@@ -22,13 +22,12 @@
         <script src="../app/scripts/vendor/lodash.min.js"></script>
         <script src="../app/scripts/vendor/backbone-min.js"></script>
         <script src="../app/scripts/main.js"></script>
-        <script src="../app/scripts/views/application-view.js"></script>
         <script src="../app/scripts/models/application-model.js"></script>
-        <script src="../app/scripts/models/page-model.js"></script>
+        <script src="../app/scripts/models/slide-model.js"></script>
         <script src="../app/scripts/models/project-model.js"></script>
         <script src="../app/scripts/models/section-model.js"></script>
         <script src="../app/scripts/collections/section-collection.js"></script>
-        <script src="../app/scripts/collections/page-collection.js"></script>
+        <script src="../app/scripts/collections/slide-collection.js"></script>
         <script src="../app/scripts/routes/application-router.js"></script>
   <!-- include spec files here... -->
   <script>
@@ -44,34 +43,65 @@
     var EP = window.EditorialPinch;
     var m = EP.Models;
     var c = EP.Collections;
-    describe('Application DATA', function() {
-
-      
-      describe('App Model', function(){
-
-        it('should be defined', function() {
+    var r = EP.Routers;
+    var sm;
+    describe('Application Model and Collections', function() {
+    //////////////////////////////////////////////////////////
+    // APP MODEL
+      describe('app model', function(){
+        it('should be an instance of ApplicationModel', function() {
            expect(m.app).to.be.instanceOf(m.ApplicationModel);
         });
-
         it('should have section array' , function(){
           expect(m.app.attributes).to.have.property('section').be.a('array');
-        });
-        
+        });   
         it('should create section collection', function (){
           expect(c.sections).to.be.instanceOf(c.SectionCollection);
         });
-
-      });
-
-      describe('Section Collection', function () {
-        
-        it('Model should be SectionModel', function() {
-          expect(c.sections.model).to.equal(m.SectionModel);
+        //////////////////////////////////////////////////////////
+        // section collection
+        describe('sections collection', function () {     
+          it('model attribute should be SectionModel', function() {
+            expect(c.sections.model).to.equal(m.SectionModel);
+          });
+          it('should create a section models', function() {
+            expect(c.sections.models.length>0).to.be.true;
+          });
+          describe('section model', function(){
+            before(function(){sm = c.sections.models[0]});
+            it('should be an instance of SectionModel', function() {
+                expect(c.sections.models[0]).to.be.instanceOf(m.SectionModel);
+            });
+           
+            it('if subsections found: should create section collection and store a ref in subSection attribute', function() {
+              expect(c.sections.models[1].get('subSection')).not.to.be.undefined;
+            });
+            it('if no subsection is found: should have a slide array', function() {
+              expect(c.sections.models[0].get('slides')).not.to.be.undefined
+            });
+          });
         });
-        it('Collection length should be greater than 0', function(){
-          expect(c.sections.length > 0).to.be.true;
-        })
       });
+
+      describe('router', function(){
+        it('should be and instance of application-router', function() {
+          expect(r.router).to.be.instanceOf(r.ApplicationRouter);
+        });
+        it('should define the root url', function() {
+          expect(true).to.be.false
+        });
+        it('should define the section routes', function() {
+          expect(true).to.be.false
+        });
+        it('should define the subsection routes', function() {
+          expect(true).to.be.false
+        });
+       
+      });
+      
+     
+          
+
     })
   })();
   </script>

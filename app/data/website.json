@@ -11,7 +11,7 @@
 		},
 		{
 			"name":"Projects",
-			"sub-sections":[
+			"sections":[
 				{
 					"name":"Von Derren Films",
 					"slides-path":"images/vdf/",
